@@ -1,15 +1,39 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import CramersRule.TwoDimensionalCramerRule;
+
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner input = new Scanner(System.in);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+
+        System.out.println("x1: ");
+        int X1 = input.nextInt();
+
+        System.out.println("y1: ");
+        int Y1 = input.nextInt();
+
+        System.out.println("z1: ");
+        int Z1 = input.nextInt();
+
+        System.out.println("x2: ");
+        int X2 = input.nextInt();
+
+        System.out.println("y2: ");
+        int Y2 = input.nextInt();
+
+        System.out.println("z2: ");
+        int Z2 = input.nextInt();
+
+        TwoDimensionalCramerRule values = new TwoDimensionalCramerRule(X1, X2, Y1, Y2, Z1, Z2);
+
+        try{
+            double[] solution = values.twoDimenstionalSolution();
+            System.out.println("x = " + solution[0]);
+            System.out.println("y = " + solution[1]);
+        }
+        catch(ArithmeticException e){
+            System.out.println("No solution " + e.getMessage());
         }
     }
 }
