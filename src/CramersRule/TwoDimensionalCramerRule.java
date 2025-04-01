@@ -1,7 +1,7 @@
 package CramersRule;
 
 public class TwoDimensionalCramerRule {
-    int x1, x2, y1, y2, z1, z2;
+    private int x1, x2, y1, y2, z1, z2;
 
 
     public TwoDimensionalCramerRule(int x1, int x2, int y1, int y2, int z1, int z2){
@@ -14,27 +14,29 @@ public class TwoDimensionalCramerRule {
 
     }
 
-    public int Determinant(){
+    public double Determinant(){
+
         return (x1 * y2) - (x2 * y1);
     }
 
-    public int DeterminantX(){
+    public double DeterminantX(){
+
         return (z1 * y2) - (z2 * y1);
     }
 
-    public int DeterminantY(){
+    public double DeterminantY(){
         return (x1 * z2) - (x2 * z1);
     }
 
     public double[] twoDimenstionalSolution(){
-        int det = Determinant();
+        double det = Determinant();
 
         if(det == 0){
             throw new ArithmeticException("No Solution");
         }
 
-        double x = (double) DeterminantX() / det;
-        double y = (double) DeterminantY() / det;
+        double x = DeterminantX() / det;
+        double y = DeterminantY() / det;
 
         double[] solution = {x, y};
 
